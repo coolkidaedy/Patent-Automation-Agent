@@ -49,14 +49,12 @@
     text-align: center;
   }
   
-  /* 5. Label Styles */
   .input-label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 600;
   }
   
-  /* 6. Input / Textarea Fields */
   .input-field {
     width: 100%;
     padding: 0.75rem 1rem;
@@ -67,19 +65,17 @@
     transition: border var(--transition-speed), box-shadow var(--transition-speed);
   }
   
-  /* Special style for textarea (optional) */
   .textarea-field {
-    resize: vertical; /* User can resize vertically, but not horizontally */
+    resize: vertical;
   }
   
-  /* 7. Focus States */
+
   .input-field:focus {
     outline: none;
     border-color: var(--color-primary);
     box-shadow: 0 0 0 2px rgba(76, 139, 245, 0.2);
   }
   
-  /* 8. Submit Button */
   .submit-button {
     width: 100%;
     padding: 0.75rem 1rem;
@@ -96,7 +92,6 @@
     background-color: #3972d4;
   }
   
-  /* 9. Responsive Media Queries (Optional) */
   @media (max-width: 480px) {
     .input-form {
       padding: 1rem;

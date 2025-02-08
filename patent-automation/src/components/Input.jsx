@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Input.css'; // <-- Import the CSS file
+import './Input.css'; 
 
 export default function Input() {
   const [title, setTitle] = useState("");
