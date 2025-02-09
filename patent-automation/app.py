@@ -1,25 +1,26 @@
+# app.py
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask_cors import CORS
 from dotenv import load_dotenv
 import os
+from extensions import db
+from operations import operations
 
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app)
 
+# Database Configuration
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URI', 'sqlite:///default.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-db = SQLAlchemy(app)
+db.init_app(app)
 migrate = Migrate(app, db)
 
-class Patent(db.Model): 
-    __tablename__ = 'patents'
-
-    id = db.Column(db.Integer, primary_key=True, unique=True)
-    title = db.Column(db.String(255), nullable=False, unique=True)
-    description = db.Column(db.String(600), nullable=False)  # Removed unique constraint
+# Register the blueprint (no prefix is used here, so endpoints are at /submit, /search, etc.)
+app.register_blueprint(operations)
 
 if __name__ == '__main__':
     app.run(debug=True)
