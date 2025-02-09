@@ -1,109 +1,276 @@
-/* 
-  Input.css - High-quality, user-centric styling 
-  ----------------------------------------------
-  - Uses CSS variables for consistent styling
-  - Provides focus states for accessibility
-  - Utilizes a clean, modern layout
+/* 1) Global Resets & Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f6f9fc; /* Light neutral background */
+  color: #2c2c2c;
+  overflow-x: hidden;
+}
+
+/* 2) Landing Wrapper: full-page container */
+.landing-wrapper {
+  width: 100%;
+}
+
+/* 3) Hero Section */
+.hero-section {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #ffffff;
+  padding: 3rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Example subtle shape or gradient for hero background:
+   Uncomment if you like a subtle gradient
+.hero-section {
+  background: linear-gradient(135deg, #eef2f3 0%, #ffffff 100%);
+}
 */
 
-/* 1. Root-level CSS variables for easy theming */
-:root {
-    --color-primary: #4C8BF5;       /* Main brand color */
-    --color-text: #333;            /* Default text color */
-    --color-background: #fff;      /* Form background */
-    --color-body-bg: #f7f7f7;      /* Page background */
-    --font-stack: 'Helvetica Neue', Arial, sans-serif;
-    --transition-speed: 0.3s;
-    --border-radius: 6px;
-  }
-  
-  /* 2. Reset & Base Styles */
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    font-family: var(--font-stack);
-    background-color: var(--color-body-bg);
-    color: var(--color-text);
-    line-height: 1.4;
-  }
-  
-  /* 3. Form Container */
-  .input-form {
-    max-width: 600px;
-    width: 90%;
-    margin: 3rem auto;
-    padding: 2rem;
-    background-color: var(--color-background);
-    border-radius: var(--border-radius);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* 4. Heading */
-  .form-heading {
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
-    text-align: center;
-  }
-  
-  .input-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-  }
-  
-  .input-field {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    margin-bottom: 1.5rem;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: var(--border-radius);
-    transition: border var(--transition-speed), box-shadow var(--transition-speed);
-  }
-  
-  .textarea-field {
-    resize: vertical;
-  }
-  
+.hero-content {
+  max-width: 800px;
+}
 
-  .input-field:focus {
-    outline: none;
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 2px rgba(76, 139, 245, 0.2);
+/* Hero Title & Mottos */
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.period-blink {
+  animation: blink 1.25s infinite;
+  color: #006eff;
+  margin-left: 2px;
+}
+
+/* Blinking underscore to add a bit of "tech" vibe */
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
   }
-  
-  .submit-button {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    font-size: 1rem;
-    background-color: var(--color-primary);
-    color: #fff;
-    border: none;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    transition: background-color var(--transition-speed);
+  51%, 100% {
+    opacity: 0;
   }
-  
-  .submit-button:hover {
-    background-color: #3972d4;
+}
+
+.hero-motto {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 0.75rem;
+}
+
+.hero-subtext {
+  font-size: 1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+/* CTA Button in Hero */
+.cta-button {
+  font-size: 1rem;
+  background-color: #006eff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.8rem 1.6rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #0056cc;
+  transform: translateY(-2px);
+}
+
+.cta-button:active {
+  background-color: #003a8c;
+  transform: translateY(0);
+}
+
+/* 4) Features Section */
+.features-section {
+  background-color: #fafafa;
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.features-heading {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: #2c3e50;
+}
+
+.features-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.feature-card {
+  background-color: #fff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  flex: 1;
+  min-width: 250px;
+  max-width: 300px;
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.feature-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  color: #333;
+}
+
+.feature-card p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* 5) Form Section */
+.form-section {
+  padding: 3rem 2rem;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+.form-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #fefefe;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.form-heading {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.form-subtext {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+/* Actual form styling */
+.input-form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+/* Labels */
+.input-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #444;
+}
+
+/* Inputs */
+.input-field {
+  font-size: 1rem;
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 1.2rem;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.input-field:focus {
+  border-color: #006eff;
+}
+
+.textarea-field {
+  resize: vertical;
+}
+
+/* Submit Button */
+.submit-button {
+  background-color: #006eff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.8rem 1.4rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  align-self: flex-start; /* align button to the left side of the form */
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.submit-button:hover {
+  background-color: #0056cc;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.submit-button:active {
+  background-color: #003a8c;
+  box-shadow: none;
+}
+
+/* 6) Animations (Fade/Slide) */
+.animate-fade-in {
+  opacity: 0;
+  animation: fadeIn 0.8s forwards;
+}
+.animate-fade-in-late {
+  opacity: 0;
+  animation: fadeIn 1.2s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
   }
-  
-  @media (max-width: 480px) {
-    .input-form {
-      padding: 1rem;
-    }
-    
-    .form-heading {
-      font-size: 1.25rem;
-    }
-  
-    .input-field, .submit-button {
-      font-size: 0.9rem;
-      padding: 0.5rem 0.75rem;
-    }
+}
+
+.animate-slide-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 0.9s forwards;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
+}
